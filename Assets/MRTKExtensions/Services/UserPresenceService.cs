@@ -9,7 +9,7 @@ namespace MRTKExtensions.Services
     public class UserPresenceService : BaseServiceWithConstructor, IUserPresenceService
     {
         private readonly UserPresenceServiceProfile profile;
-        private InputActionReference gazeTrackingState;
+        private readonly InputActionReference gazeTrackingState;
         private bool isInitialized = false;
         private float lastStateFlipTime;
         private bool lastRequestedState = false;
@@ -22,6 +22,7 @@ namespace MRTKExtensions.Services
             : base(name, priority)
         {
             this.profile = profile;
+            gazeTrackingState = profile.GazeTrackingState;
         }
 
         public override void Enable()
@@ -32,7 +33,6 @@ namespace MRTKExtensions.Services
             }
 
             isInitialized = true;
-            gazeTrackingState = profile.GazeTrackingState;
             gazeTrackingState.action.performed += GazeTrackingStateChanged;
         }
 
