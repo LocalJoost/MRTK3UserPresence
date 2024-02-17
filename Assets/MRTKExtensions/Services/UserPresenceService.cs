@@ -56,7 +56,7 @@ namespace MRTKExtensions.Services
                 lastStateFlipTime = Time.time;
             }
             
-            if( Time.time - lastStateFlipTime > (lastRequestedState ? profile.UserPresentWaitTime : profile.UserAWayWaitTime))
+            if( Time.time - lastStateFlipTime > (lastRequestedState ? profile.UserPresentWaitTime : profile.UserAwayWaitTime))
             {
                 IsUserPresent = lastRequestedState;
                 UserPresenceChanged.Invoke(IsUserPresent);

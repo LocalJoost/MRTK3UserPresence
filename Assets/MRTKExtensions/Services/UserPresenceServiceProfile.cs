@@ -2,7 +2,6 @@ using RealityCollective.ServiceFramework.Definitions;
 using RealityCollective.ServiceFramework.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace MRTKExtensions.Services
 {
@@ -14,13 +13,13 @@ namespace MRTKExtensions.Services
         private InputActionReference gazeTrackingState;
         
         [SerializeField]
-        private float userAWayWaitTime = 3.0f;
+        private float userAwayWaitTime = 3.0f;
 
         [SerializeField]
         private float userPresentWaitTime = 0.5f;
         
         public InputActionReference GazeTrackingState => gazeTrackingState;
-        public float UserAWayWaitTime => userAWayWaitTime;
+        public float UserAwayWaitTime => userAwayWaitTime;
         public float UserPresentWaitTime => userPresentWaitTime;
     }
 }
