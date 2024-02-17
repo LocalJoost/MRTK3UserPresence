@@ -11,7 +11,7 @@ namespace MRTKExtensions.Services
         private readonly UserPresenceServiceProfile profile;
         private readonly InputActionReference gazeTrackingState;
         private bool isInitialized = false;
-        private float lastStateFlipTime;
+        private float lastStateChangeTime;
         private bool lastRequestedState = false;
         private int gazeStateResult = 0;
         
@@ -53,10 +53,10 @@ namespace MRTKExtensions.Services
             if( newState != lastRequestedState)
             {
                 lastRequestedState = newState;
-                lastStateFlipTime = Time.time;
+                lastStateChangeTime = Time.time;
             }
             
-            if( Time.time - lastStateFlipTime > (lastRequestedState ? profile.UserPresentWaitTime : profile.UserAwayWaitTime))
+            if( Time.time - lastStateChangeTime > (lastRequestedState ? profile.UserPresentWaitTime : profile.UserAwayWaitTime))
             {
                 IsUserPresent = lastRequestedState;
                 UserPresenceChanged.Invoke(IsUserPresent);

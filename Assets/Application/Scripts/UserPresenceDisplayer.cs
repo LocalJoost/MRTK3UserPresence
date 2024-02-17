@@ -36,7 +36,7 @@ public class UserPresenceDisplayer : MonoBehaviour
     {
         if (userPresenceService != null)
         {
-            userPresenceService.UserPresenceChanged.AddListener(OnUserPresenceChanged);
+            userPresenceService.UserPresenceChanged.RemoveListener(OnUserPresenceChanged);
         }
     }
 }
